@@ -1,0 +1,96 @@
+npm install -g expo-cli
+---------------------------------------
+expo init MyApp
+----------------------------------------
+cd MyApp
+-----------------------------
+npm Start
+------------------------------
+State: Imagine state as the data that your component controls. For example, if you have a counter, its value (like 0, 1, 2, etc.) is part of the state.
+--------------------------------------------------------------
+import React, { useState } from 'react';
+import { StyleSheet, View ,Text,Button} from 'react-native';
+
+const Menu = () => {
+    const [count, setCount] = useState(0);
+    return (
+        <View>
+            <Text>{count}</Text>
+            <Button title="Increase" onPress={() => setCount(count + 1)} />
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({})
+
+export default Menu;
+// render on the app.js
+------------------------------------------------------------------
+
+What are Props?
+Props (short for "properties") are used to pass data from one component to another in React.
+They are read-only and cannot be modified by the receiving component.
+Props help make components more reusable.
+------------------------------------------------------------------
+ Props are the data passed from one component to another. It's like giving a message from a parent component to a child component. Props are read-only, meaning they cannot be changed by the child component.
+--------------------------------------------------------------------
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import About from './About';
+import Menu from './Menu';
+
+export default function App(){
+const Message="react native";
+  return (
+    <View style={styles.container}>
+      <Text> this is react native code</Text>
+      <StatusBar style="auto"/>
+      <About new={Message}/>
+      <Menu/>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+----------------------------------------------------------------
+import React from 'react';
+import { StyleSheet, View,Text } from 'react-native';
+
+const About = (props) => {
+    return (
+        <View>
+           <Text>welcome{props.new}</Text>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({})
+
+export default About;
+
+---------------------------------------------------------------------
+
+
+for redux---------------
+------------------------------
+npm install redux react-redux
+-----------------------------------
+npm i react-redux @reduxjs/toolkit
+
+------------------------------------
+
+redux is a tool that helps manage global state across your app. It has three main parts:
+
+Actions: Think of actions as "instructions" to change the state.
+Reducers: These are the "functions" that take an action and decide how the state should change.
+Store: The place where the entire state of the app is kept.
+------------------------------------------------------------------------------
+
+
