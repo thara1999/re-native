@@ -1,22 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import About from './About';
-import Menu from './Menu';
-import { Provider } from 'react-redux';
-import store from './redux/Store';
-import ActionView from './redux/Actionview';
-
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+// import { Provider } from 'react-redux';
+// import { store } from './Fetch-api/Red';
+// import DisplayData from './Fetch-api/DisplayData';
+import FetchData from './Fetch-api/FetchData';
+// import FormSubmit from './Fetch-api/FormSubmit';
+// import Reduxdata from './Fetch-api/redux/reduxdata';
 export default function App(){
 const Message="react native";
   return (
     <View style={styles.container}>
       <Text> this is react native code</Text>
       <StatusBar style="auto"/>
-      <About new={Message}/>
+      <FetchData/>
+      {/* <Provider store={store}>
+<ScrollView>
+  <FetchData/>
+  <FormSubmit/>
+  <DisplayData/>
+  <Reduxdata/>
+</ScrollView>
+      </Provider> */}
+      {/* <About new={Message}/>
       <Menu/>
       <Provider store={store}>
         <ActionView/>
-      </Provider>
+      </Provider> */}
+      
     </View>
   );
 }
